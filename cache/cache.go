@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"shortit.sh/config"
+	"github.com/Viijay-Kr/shortit/config"
 
 	"github.com/redis/go-redis/v9"
 )

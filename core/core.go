@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/url"
 
+	"github.com/Viijay-Kr/shortit/config"
 	"github.com/google/uuid"
 	"github.com/microcosm-cc/bluemonday"
-	"shortit.sh/config"
 )
 
 type ShortUrl struct {

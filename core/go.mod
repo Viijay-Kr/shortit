@@ -1,4 +1,4 @@
-module shortit.sh/core
+module github.com/Viijay-Kr/shortit/core
 
 go 1.24.2
 

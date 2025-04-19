@@ -1,4 +1,4 @@
-module shortit.sh/config
+module github.com/Viijay-Kr/shortit/config
 
 go 1.24.2
 
