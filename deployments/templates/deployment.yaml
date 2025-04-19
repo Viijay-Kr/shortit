@@ -43,5 +43,20 @@ spec:
       containers:
       - name: service-generate
         image: {{ .Values.service.image.registry }}/{{ .Values.service.image.repository }}:{{ .Values.service.image.tag }}
+        env:
+        - name: GO_ENV
+          value: {{ .Values.env.GO_ENV | quote }}
+        - name: DATABASE_URL
+          value: {{ .Values.env.DATABASE_URL | quote }}
+        - name: REDIS_HOST
+          value: {{ .Values.env.REDIS_HOST | quote }}
+        - name: REDIS_PORT
+          value: {{ .Values.env.REDIS_PORT | quote }}
+        - name: REDIS_PASSWORD
+          value: {{ .Values.env.REDIS_PASSWORD | quote }}
+        - name: SHORTIT_REDIRECT_HOST
+          value: {{ .Values.env.SHORTIT_REDIRECT_HOST | quote }}
+        - name: SERVICE_GENERATE_PORT
+          value: {{ .Values.service.port | quote }}  
         ports:
         - containerPort: {{ .Values.service.port }}

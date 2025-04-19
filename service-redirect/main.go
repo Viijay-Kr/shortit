@@ -39,10 +39,11 @@ func getShortUrl(c *gin.Context) {
 		return
 	}
 
-	if err := cache.Get(id); err != nil {
+	val, err := cache.Get(id)
+	if err != nil {
 		c.String(http.StatusNotFound, "URL not found")
 		return
 	}
 
-	c.Redirect(http.StatusFound, cache.GetURL(id))
+	c.Redirect(http.StatusFound, val)
 }

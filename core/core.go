@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/microcosm-cc/bluemonday"
-
 	"github.com/google/uuid"
+	"github.com/microcosm-cc/bluemonday"
+	"shortit.sh/config"
 )
 
 type ShortUrl struct {
@@ -29,7 +29,8 @@ func GenerateShortUrl(link string) (ShortUrl, error) {
 	// Generate a short url using a randomId of length 6
 	id := uuid.New().String()[:8]
 
-	shortUrl := fmt.Sprintf("https://shortit.sh/%s", id)
+	cfg := config.GetConfig()
+	shortUrl := fmt.Sprintf("%s/%s", cfg.ShortitRedirectHost, id)
 
 	return ShortUrl{
 		ID:        id,
@@ -43,9 +44,4 @@ func validateUrl(link string) (*url.URL, error) {
 	matched, err := url.ParseRequestURI(link)
 
 	return matched, err
-}
-
-func sanitizeUrl(url string) (string, error) {
-	// Implement URL sanitization logic here
-	return "", nil
 }

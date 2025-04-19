@@ -1,4 +1,4 @@
-module shortit.sh/shortit-core
+module shortit.sh/core
 
 go 1.24.2
 

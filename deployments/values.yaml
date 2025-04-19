@@ -2,7 +2,13 @@ global:
   security:
     ## @param global.security.allowInsecureImages Allows skipping image verification
     allowInsecureImages: true
-
+env:
+  GO_ENV: development
+  DATABASE_URL: mongodb://127.0.0.1:27017/shortit?directConnection=true
+  REDIS_HOST: 127.0.0.1
+  REDIS_PORT: 6379
+  REDIS_PASSWORD: ""
+  SHORTIT_REDIRECT_HOST: http://127.0.0.1
 mongodb:
   image:
     registry: docker.io

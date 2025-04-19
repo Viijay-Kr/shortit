@@ -46,7 +46,7 @@ func Get(key string) (string, error) {
 
 func Set(key, value string) error {
 	ctx := context.Background()
-	err := client.Set(ctx, key, value, time.Duration(time.Duration(10).Minutes())).Err()
+	err := client.Set(ctx, key, value, 10*time.Minute).Err()
 	if err != nil {
 		fmt.Println("Failed to set value in cache:", err)
 		return err
