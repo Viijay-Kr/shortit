@@ -4,6 +4,8 @@ use ./core
 
 use ./config
 
+use ./cache
+
 use ./service-generate
 
 use ./service-redirect
