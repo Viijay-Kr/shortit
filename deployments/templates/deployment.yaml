@@ -24,3 +24,24 @@ spec:
       - name: mongodb-data
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-mongodb-pvc
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-service-generate
+spec:
+  selector:
+    matchLabels:
+      app: service-generate
+  replicas: {{ .Values.service.replicas }}
+  template:
+    metadata:
+      labels:
+        app: service-generate
+    spec:
+      containers:
+      - name: service-generate
+        image: {{ .Values.service.image.repository }}:{{ .Values.service.image.tag }}
+        ports:
+        - containerPort: {{ .Values.service.port }}

@@ -25,3 +25,22 @@ redis:
       size: 8Gi
   metrics:
     enabled: false
+
+service:
+  name: service-generate
+  image:
+    repository: service-generate
+    tag: latest
+    pullPolicy: Never
+  port: 8001
+  service:
+    port: 8001
+  replicas: 1
+
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
