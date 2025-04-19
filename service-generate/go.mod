@@ -3,6 +3,10 @@ module shortit.sh/service-generate
 go 1.24.2
 
 require (
+	github.com/Viijay-Kr/shortit/config v0.0.0-20250419150616-2b9b5fd1c273
+)
+
+require (
 	github.com/bytedance/sonic v1.13.2 // indirect
 	github.com/bytedance/sonic/loader v0.2.4 // indirect
 	github.com/cloudwego/base64x v0.1.5 // indirect

@@ -6,10 +6,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"shortit.sh/config"
-	"shortit.sh/core"
+	"github.com/Viijay-Kr/shortit/config"
+	"github.com/Viijay-Kr/shortit/core"
 
-	"shortit.sh/cache"
+	"github.com/Viijay-Kr/shortit/cache"
 )
 
 func main() {
