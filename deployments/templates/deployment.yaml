@@ -42,6 +42,6 @@ spec:
     spec:
       containers:
       - name: service-generate
-        image: {{ .Values.service.image.repository }}:{{ .Values.service.image.tag }}
+        image: {{ .Values.service.image.registry }}/{{ .Values.service.image.repository }}:{{ .Values.service.image.tag }}
         ports:
         - containerPort: {{ .Values.service.port }}

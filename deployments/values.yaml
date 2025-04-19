@@ -29,9 +29,10 @@ redis:
 service:
   name: service-generate
   image:
+    registry: localhost:5001
     repository: service-generate
     tag: latest
-    pullPolicy: Never
+    pullPolicy: IfNotPresent
   port: 8001
   service:
     port: 8001

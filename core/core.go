@@ -9,11 +9,17 @@ import (
 	"github.com/google/uuid"
 )
 
-func GenerateShortUrl(link string) (string, string, error) {
+type ShortUrl struct {
+	ID        string
+	Sanitized string
+	Shortened string
+}
+
+func GenerateShortUrl(link string) (ShortUrl, error) {
 	// 1. Validate the url
 	_, validateErr := validateUrl(link)
 	if validateErr != nil {
-		return "", "", fmt.Errorf("failed to validate url: %w", validateErr)
+		return ShortUrl{}, fmt.Errorf("failed to validate url: %w", validateErr)
 	}
 
 	// 2. Sanitize the url
@@ -25,7 +31,11 @@ func GenerateShortUrl(link string) (string, string, error) {
 
 	shortUrl := fmt.Sprintf("https://shortit.sh/%s", id)
 
-	return shortUrl, sanitizedUrl, nil
+	return ShortUrl{
+		ID:        id,
+		Sanitized: sanitizedUrl,
+		Shortened: shortUrl,
+	}, nil
 }
 
 func validateUrl(link string) (*url.URL, error) {
