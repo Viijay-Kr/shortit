@@ -6,8 +6,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"shortit.sh/cache"
-	"shortit.sh/config"
+	"github.com/Viijay-Kr/shortit/cache"
+	"github.com/Viijay-Kr/shortit/config"
 )
 
 func main() {
