@@ -1,0 +1,11 @@
+apiVersion: v2
+name: shortitsh
+description: A Helm chart for shortitsh URL shortener service
+version: 0.1.0
+type: application
+
+dependencies:
+  - name: redis
+    version: "18.x.x"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: redis.enabled

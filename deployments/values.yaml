@@ -1,0 +1,27 @@
+global:
+  security:
+    ## @param global.security.allowInsecureImages Allows skipping image verification
+    allowInsecureImages: true
+
+mongodb:
+  image:
+    registry: docker.io
+    repository: dlavrenuek/bitnami-mongodb-arm
+    tag: "8.0.4"
+    digest: ""
+
+redis:
+  image:
+    registry: docker.io
+    repository: bitnami/redis
+    tag: "7.2"
+    pullPolicy: IfNotPresent
+  auth:
+    enabled: false
+  architecture: standalone # Can be "standalone" or "replication"
+  master:
+    persistence:
+      enabled: true
+      size: 8Gi
+  metrics:
+    enabled: false
