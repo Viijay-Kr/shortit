@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"shortit.sh/config"
@@ -16,6 +17,6 @@ func main() {
 	router.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "Hello! from Service Redirect")
 	})
-
-	router.Run(":8002")
+	port := fmt.Sprintf(":%s", cfg.ServiceRedirectPort)
+	router.Run(port)
 }

@@ -9,8 +9,10 @@ import (
 )
 
 type Config struct {
-	DatabaseURL string
-	RedisURL    string
+	DatabaseURL         string
+	RedisURL            string
+	ServiceRedirectPort string
+	ServiceGeneratePort string
 }
 
 var (
@@ -25,8 +27,10 @@ func GetConfig() *Config {
 		}
 
 		config = &Config{
-			DatabaseURL: getEnvWithDefault("DATABASE_URL", "mongodb://root@rootlocalhost:27017/shortit"),
-			RedisURL:    getEnvWithDefault("REDIS_URL", "redis://localhost:6379"),
+			DatabaseURL:         getEnvWithDefault("DATABASE_URL", "mongodb://root@rootlocalhost:27017/shortit"),
+			RedisURL:            getEnvWithDefault("REDIS_URL", "redis://localhost:6379"),
+			ServiceRedirectPort: getEnvWithDefault("SERVICE_REDIRECT_PORT", "8002"),
+			ServiceGeneratePort: getEnvWithDefault("SERVICE_GENERATE_PORT", "8001"),
 		}
 	})
 
