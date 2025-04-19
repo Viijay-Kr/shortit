@@ -9,6 +9,10 @@ mongodb:
     repository: dlavrenuek/bitnami-mongodb-arm
     tag: "8.0.4"
     digest: ""
+  auth:
+    username: shortit
+    password: flinstones
+    rootPassword: root12flinstones
 
 redis:
   image:
