@@ -66,9 +66,9 @@ serviceGenerate:
 serviceRedirect:
   name: service-redirect
   image:
-    registry: localhost:5001
-    repository: service-redirect
-    tag: latest
+    registry: docker.io
+    repository: vijayk93/shortitsh
+    tag: service-redirect
     pullPolicy: IfNotPresent
   port: 8002
   service:

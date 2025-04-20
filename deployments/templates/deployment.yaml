@@ -80,6 +80,8 @@ spec:
       labels:
         app: service-redirect
     spec:
+      imagePullSecrets:
+      - name: dockerhub-secret
       containers:
       - name: service-redirect
         image: {{ .Values.serviceRedirect.image.registry }}/{{ .Values.serviceRedirect.image.repository }}:{{ .Values.serviceRedirect.image.tag }}
