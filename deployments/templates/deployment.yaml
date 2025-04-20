@@ -34,7 +34,7 @@ spec:
   selector:
     matchLabels:
       app: service-generate
-  replicas: {{ .Values.service.replicas }}
+  replicas: {{ .Values.serviceGenerate.replicas }}
   template:
     metadata:
       labels:
@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
       - name: service-generate
-        image: {{ .Values.service.image.registry }}/{{ .Values.service.image.repository }}:{{ .Values.service.image.tag }}
+        image: {{ .Values.serviceGenerate.image.registry }}/{{ .Values.serviceGenerate.image.repository }}:{{ .Values.serviceGenerate.image.tag }}
         env:
         - name: GO_ENV
           value: {{ .Values.env.GO_ENV | quote }}
@@ -57,6 +57,44 @@ spec:
         - name: SHORTIT_REDIRECT_HOST
           value: {{ .Values.env.SHORTIT_REDIRECT_HOST | quote }}
         - name: SERVICE_GENERATE_PORT
-          value: {{ .Values.service.port | quote }}  
+          value: {{ .Values.serviceGenerate.port | quote }}  
+        - name: SERVICE_REDIRECT_PORT
+          value: {{ .Values.serviceRedirect.port | quote }}    
         ports:
-        - containerPort: {{ .Values.service.port }}
+        - containerPort: {{ .Values.serviceGenerate.port }}
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-service-redirect
+spec:
+  selector:
+    matchLabels:
+      app: service-redirect
+  replicas: {{ .Values.serviceRedirect.replicas }}
+  template:
+    metadata:
+      labels:
+        app: service-redirect
+    spec:
+      containers:
+      - name: service-redirect
+        image: {{ .Values.serviceRedirect.image.registry }}/{{ .Values.serviceRedirect.image.repository }}:{{ .Values.serviceRedirect.image.tag }}
+        env:
+        - name: GO_ENV
+          value: {{ .Values.env.GO_ENV | quote }}
+        - name: DATABASE_URL
+          value: {{ .Values.env.DATABASE_URL | quote }}
+        - name: REDIS_HOST
+          value: {{ .Values.env.REDIS_HOST | quote }}
+        - name: REDIS_PORT
+          value: {{ .Values.env.REDIS_PORT | quote }}
+        - name: REDIS_PASSWORD
+          value: {{ .Values.env.REDIS_PASSWORD | quote }}
+        - name: SHORTIT_REDIRECT_HOST
+          value: {{ .Values.env.SHORTIT_REDIRECT_HOST | quote }}
+        - name: SERVICE_REDIRECT_PORT
+          value: {{ .Values.serviceRedirect.port | quote }}  
+        ports:
+        - containerPort: {{ .Values.serviceRedirect.port }}

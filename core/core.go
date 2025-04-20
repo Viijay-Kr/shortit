@@ -26,7 +26,7 @@ func GenerateShortUrl(link string) (ShortUrl, error) {
 	policy := bluemonday.UGCPolicy()
 	sanitizedUrl := policy.Sanitize(link)
 
-	// Generate a short url using a randomId of length 6
+	// Generate a short url using a randomId of length 8
 	id := uuid.New().String()[:8]
 
 	cfg := config.GetConfig()

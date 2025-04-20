@@ -20,5 +20,18 @@ spec:
     app: service-generate
   ports:
     - protocol: TCP
-      port: {{ .Values.service.service.port }}
-      targetPort: {{ .Values.service.port }}
+      port: {{ .Values.serviceGenerate.service.port }}
+      targetPort: {{ .Values.serviceGenerate.port }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-service-redirect
+spec:
+  selector:
+    app: service-redirect
+  ports:
+    - protocol: TCP
+      port: {{ .Values.serviceRedirect.service.port }}
+      targetPort: {{ .Values.serviceRedirect.port }}
