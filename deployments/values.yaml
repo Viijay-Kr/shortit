@@ -2,13 +2,20 @@ global:
   security:
     ## @param global.security.allowInsecureImages Allows skipping image verification
     allowInsecureImages: true
+
+# filepath: /Volumes/VijaysSSD/private/go-learning-path/projects/shortit/deployments/values.yaml
+dockerHub:
+  username: vijayk93
+  password: dckr_pat_aMfpVT31DMonwdiWMckqZEZqu04
+
 env:
   GO_ENV: development
   DATABASE_URL: mongodb://127.0.0.1:27017/shortit?directConnection=true
-  REDIS_HOST: 10.105.109.84
+  REDIS_HOST: shortitsh-redis-master.shortit
   REDIS_PORT: 6379
   REDIS_PASSWORD: ""
   SHORTIT_REDIRECT_HOST: http://127.0.0.1
+
 mongodb:
   image:
     registry: docker.io
@@ -39,9 +46,9 @@ redis:
 serviceGenerate:
   name: service-generate
   image:
-    registry: localhost:5001
-    repository: service-generate
-    tag: latest
+    registry: docker.io
+    repository: vijayk93/shortitsh
+    tag: service-generate
     pullPolicy: IfNotPresent
   port: 8001
   service:

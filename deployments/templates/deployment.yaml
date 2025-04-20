@@ -40,6 +40,8 @@ spec:
       labels:
         app: service-generate
     spec:
+      imagePullSecrets:
+      - name: dockerhub-secret
       containers:
       - name: service-generate
         image: {{ .Values.serviceGenerate.image.registry }}/{{ .Values.serviceGenerate.image.repository }}:{{ .Values.serviceGenerate.image.tag }}
