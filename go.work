@@ -4,6 +4,8 @@ use ./core
 
 use ./config
 
+use ./db
+
 use ./cache
 
 use ./service-generate

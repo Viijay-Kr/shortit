@@ -6,18 +6,17 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	"github.com/Viijay-Kr/shortit/cache"
 	"github.com/Viijay-Kr/shortit/config"
 	"github.com/Viijay-Kr/shortit/core"
-
-	"github.com/Viijay-Kr/shortit/cache"
 )
 
 func main() {
 	cfg := config.GetConfig()
 
 	router := gin.Default()
-	redis_err := cache.Initialize()
 
+	redis_err := cache.Initialize()
 	if redis_err != nil {
 		panic(fmt.Sprintf("Failed to initialize Redis: %v", redis_err))
 	}
