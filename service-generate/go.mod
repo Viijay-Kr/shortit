@@ -5,8 +5,8 @@ go 1.24.2
 require (
 	github.com/Viijay-Kr/shortit/cache v0.0.0-20250421135340-710e4c084911
 	github.com/Viijay-Kr/shortit/config v0.0.0-20250421135340-710e4c084911
-	github.com/Viijay-Kr/shortit/core v0.0.0-20250421095043-f31fc6344783
-	github.com/Viijay-Kr/shortit/db v0.0.0-20250421095043-f31fc6344783
+	github.com/Viijay-Kr/shortit/core v0.0.0-20250421140555-2582a2eed450
+	github.com/Viijay-Kr/shortit/db v0.0.0-20250421140555-2582a2eed450
 	github.com/gin-gonic/gin v1.10.0
 )
 
@@ -16,7 +16,6 @@ require (
 	github.com/bytedance/sonic/loader v0.2.4 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/cloudwego/base64x v0.1.5 // indirect
-	github.com/cloudwego/iasm v0.2.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/gabriel-vasile/mimetype v1.4.9 // indirect
 	github.com/gin-contrib/sse v1.1.0 // indirect
