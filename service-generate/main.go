@@ -9,6 +9,7 @@ import (
 	"github.com/Viijay-Kr/shortit/cache"
 	"github.com/Viijay-Kr/shortit/config"
 	"github.com/Viijay-Kr/shortit/core"
+	"github.com/Viijay-Kr/shortit/db"
 )
 
 func main() {
@@ -17,6 +18,11 @@ func main() {
 	router := gin.Default()
 
 	redis_err := cache.Initialize()
+	db_err := db.Initialize()
+
+	if db_err != nil {
+		panic(fmt.Sprintf("Failed to initialize DB: %v", db_err))
+	}
 	if redis_err != nil {
 		panic(fmt.Sprintf("Failed to initialize Redis: %v", redis_err))
 	}
