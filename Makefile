@@ -7,7 +7,7 @@ NAMESPACE=shortit
 
 # Build service-generate
 build-service-generate:
-	docker build -t $(SERVICE_GENERATE_IMAGE) ./service-generate´
+	docker build -t $(SERVICE_GENERATE_IMAGE) ./service-generate
 
 # Build service-redirect
 build-service-redirect:
