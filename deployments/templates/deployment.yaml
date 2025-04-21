@@ -45,6 +45,7 @@ spec:
       containers:
       - name: service-generate
         image: {{ .Values.serviceGenerate.image.registry }}/{{ .Values.serviceGenerate.image.repository }}:{{ .Values.serviceGenerate.image.tag }}
+        imagePullPolicy: {{ .Values.serviceGenerate.image.pullPolicy }}
         env:
         - name: GO_ENV
           value: {{ .Values.env.GO_ENV | quote }}
@@ -85,6 +86,7 @@ spec:
       containers:
       - name: service-redirect
         image: {{ .Values.serviceRedirect.image.registry }}/{{ .Values.serviceRedirect.image.repository }}:{{ .Values.serviceRedirect.image.tag }}
+        imagePullPolicy: {{ .Values.serviceRedirect.image.pullPolicy }}
         env:
         - name: GO_ENV
           value: {{ .Values.env.GO_ENV | quote }}

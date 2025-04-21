@@ -9,7 +9,7 @@ dockerHub:
   password: dckr_pat_aMfpVT31DMonwdiWMckqZEZqu04
 
 env:
-  GO_ENV: development
+  GO_ENV: minkube_local
   DATABASE_URL: mongodb://shortitsh-mongodb:27017/shortit?directConnection=true
   DATABASE_NAME: shortit
   REDIS_HOST: shortitsh-redis-master.shortit
@@ -50,7 +50,7 @@ serviceGenerate:
     registry: docker.io
     repository: vijayk93/shortitsh
     tag: service-generate
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   port: 8001
   service:
     port: 8001
@@ -70,7 +70,7 @@ serviceRedirect:
     registry: docker.io
     repository: vijayk93/shortitsh
     tag: service-redirect
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   port: 8002
   service:
     port: 8002
