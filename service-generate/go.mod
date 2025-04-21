@@ -11,7 +11,6 @@ require (
 )
 
 require (
-	github.com/Viijay-Kr/shortit v0.0.0-20250421091410-7795502d666b // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/bytedance/sonic v1.13.2 // indirect
 	github.com/bytedance/sonic/loader v0.2.4 // indirect

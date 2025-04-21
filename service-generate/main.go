@@ -43,7 +43,6 @@ func main() {
 func generateShortURL(c *gin.Context) {
 	// Get the big url from request body
 	big_url := c.PostForm("url")
-	cfg := config.GetConfig()
 	short_url, err := core.GenerateShortUrl(big_url)
 
 	if err != nil {
@@ -52,14 +51,10 @@ func generateShortURL(c *gin.Context) {
 	}
 
 	cache.Set(short_url.Hash, short_url.Sanitized)
-	res, err := db.GetClient().Database(cfg.Database.Database).Collection("urls").InsertOne(c, short_url)
 
+	err = db.InsertUrl(short_url)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
-	}
-	if res == nil || res.InsertedID == nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to insert into DB"})
 		return
 	}
 
