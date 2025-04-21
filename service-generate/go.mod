@@ -3,10 +3,10 @@ module shortit.sh/service-generate
 go 1.24.2
 
 require (
-	github.com/Viijay-Kr/shortit/cache v0.0.0-20250419151822-4d5d0fb95798
-	github.com/Viijay-Kr/shortit/config v0.0.0-20250420090307-f8c21c1c0165
-	github.com/Viijay-Kr/shortit/core v0.0.0-20250419151822-4d5d0fb95798
-	github.com/Viijay-Kr/shortit/db v0.0.0-20250421091410-7795502d666b
+	github.com/Viijay-Kr/shortit/cache v0.0.0-20250421135340-710e4c084911
+	github.com/Viijay-Kr/shortit/config v0.0.0-20250421135340-710e4c084911
+	github.com/Viijay-Kr/shortit/core v0.0.0-20250421095043-f31fc6344783
+	github.com/Viijay-Kr/shortit/db v0.0.0-20250421095043-f31fc6344783
 	github.com/gin-gonic/gin v1.10.0
 )
 
