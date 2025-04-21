@@ -6,7 +6,7 @@ global:
 # filepath: /Volumes/VijaysSSD/private/go-learning-path/projects/shortit/deployments/values.yaml
 dockerHub:
   username: vijayk93
-  password: dckr_pat_aMfpVT31DMonwdiWMckqZEZqu04
+  password: ""
 
 env:
   GO_ENV: minkube_local
