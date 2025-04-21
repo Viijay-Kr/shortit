@@ -10,11 +10,11 @@ dockerHub:
 
 env:
   GO_ENV: development
-  DATABASE_URL: mongodb://127.0.0.1:27017/shortit?directConnection=true
+  DATABASE_URL: mongodb://shortitsh-mongodb:27017/shortit?directConnection=true
   REDIS_HOST: shortitsh-redis-master.shortit
   REDIS_PORT: 6379
   REDIS_PASSWORD: ""
-  SHORTIT_REDIRECT_HOST: http://127.0.0.1
+  SHORTIT_REDIRECT_HOST: http://shortit.test
 
 mongodb:
   image:
