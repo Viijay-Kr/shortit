@@ -51,7 +51,17 @@ func generateShortURL(c *gin.Context) {
 		return
 	}
 
-	cache.Set(short_url.ID, short_url.Sanitized)
+	cache.Set(short_url.Hash, short_url.Sanitized)
+	res, err := db.GetClient().Database("shortit").Collection("urls").InsertOne(c, short_url)
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	if res == nil || res.InsertedID == nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to insert into DB"})
+		return
+	}
 
 	c.JSON(http.StatusOK, gin.H{"short_url": short_url.Shortened})
 }

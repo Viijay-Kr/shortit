@@ -10,7 +10,7 @@ import (
 )
 
 type ShortUrl struct {
-	ID        string
+	Hash      string
 	Sanitized string
 	Shortened string
 }
@@ -33,7 +33,7 @@ func GenerateShortUrl(link string) (ShortUrl, error) {
 	shortUrl := fmt.Sprintf("%s/%s", cfg.ShortitRedirectHost, id)
 
 	return ShortUrl{
-		ID:        id,
+		Hash:      id,
 		Sanitized: sanitizedUrl,
 		Shortened: shortUrl,
 	}, nil
