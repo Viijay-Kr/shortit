@@ -82,3 +82,11 @@ serviceRedirect:
     requests:
       cpu: 100m
       memory: 128Mi
+
+ingress:
+  enabled: true
+  host: shortit.test
+  annotations: {}
+  paths:
+    generate: "/api/generate"
+    redirect: "/"

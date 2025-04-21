@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-ingress
+  annotations:
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: {{ .Values.ingress.host | quote }}
+    http:
+      paths:
+      - path: {{ .Values.ingress.paths.generate | default "/api/generate" | quote }}
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: {{ .Release.Name }}-service-generate
+            port:
+              number: {{ .Values.serviceGenerate.service.port }}
+      - path: {{ .Values.ingress.paths.redirect | default "/" | quote }}
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Release.Name }}-service-redirect
+            port:
+              number: {{ .Values.serviceRedirect.service.port }}
