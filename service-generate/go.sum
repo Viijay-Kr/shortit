@@ -2,12 +2,8 @@ github.com/Viijay-Kr/shortit/cache v0.0.0-20250421135340-710e4c084911 h1:fsHzTWo
 github.com/Viijay-Kr/shortit/cache v0.0.0-20250421135340-710e4c084911/go.mod h1:kavGcJUaxvyMNGIFRRkDd7B1gHe+hsl6Gjz8ugMt1Ug=
 github.com/Viijay-Kr/shortit/config v0.0.0-20250421135340-710e4c084911 h1:TFB6fUrziiGQfpFAhXHA/p/0pWGTX4wK+Xsz0dybfZQ=
 github.com/Viijay-Kr/shortit/config v0.0.0-20250421135340-710e4c084911/go.mod h1:VZCHaCgkpRrQ4RXXECVD+ZxfgBynvV/bdSWHlUZrops=
-github.com/Viijay-Kr/shortit/core v0.0.0-20250421095043-f31fc6344783 h1:qFeYD8xDFUgK26txpzY9CyMiXpDebCRQnbGze8BSTLQ=
-github.com/Viijay-Kr/shortit/core v0.0.0-20250421095043-f31fc6344783/go.mod h1:cOCt3nTxfmesjRphCQO2aY6M7Yl+A7yWUD8GXZD2r5Y=
 github.com/Viijay-Kr/shortit/core v0.0.0-20250421140555-2582a2eed450 h1:t0Xgph88OiWHtDSWLtJHs4WwTid958Px7htF4aNKlhA=
 github.com/Viijay-Kr/shortit/core v0.0.0-20250421140555-2582a2eed450/go.mod h1:cOCt3nTxfmesjRphCQO2aY6M7Yl+A7yWUD8GXZD2r5Y=
-github.com/Viijay-Kr/shortit/db v0.0.0-20250421095043-f31fc6344783 h1:EKYA2X8NcP7GKG1e0/qcjwwRwob9SbwPkhisN2ZV854=
-github.com/Viijay-Kr/shortit/db v0.0.0-20250421095043-f31fc6344783/go.mod h1:YMQfbw3TP5iLuJUW+uBFW+vzzNyinVam91ZtAy0kshg=
 github.com/Viijay-Kr/shortit/db v0.0.0-20250421140555-2582a2eed450 h1:gSMnRww8UCJxYeEtugmpT2YyRU4T2dXF6MOTINqtrLg=
 github.com/Viijay-Kr/shortit/db v0.0.0-20250421140555-2582a2eed450/go.mod h1:YMQfbw3TP5iLuJUW+uBFW+vzzNyinVam91ZtAy0kshg=
 github.com/aymerick/douceur v0.2.0 h1:Mv+mAeH1Q+n9Fr+oyamOlAkUNPWPlA8PPGR0QAaYuPk=
