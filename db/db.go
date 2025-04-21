@@ -15,7 +15,7 @@ func Initialize() error {
 	cfg := config.GetConfig()
 
 	var uri string
-	if uri = cfg.DatabaseURL; uri == "" {
+	if uri = cfg.Database.URL; uri == "" {
 		return fmt.Errorf("database URL is not set")
 	}
 	serverAPI := options.ServerAPI(options.ServerAPIVersion1)

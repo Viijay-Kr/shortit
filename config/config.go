@@ -14,9 +14,12 @@ type Redis struct {
 	Port     string
 	Password string
 }
+type Database struct {
+	URL      string
+	Database string
+}
 type Config struct {
-	DatabaseURL         string
-	RedisURL            string
+	Database            Database
 	ServiceRedirectPort string
 	ServiceGeneratePort string
 	ShortitRedirectHost string
@@ -45,8 +48,10 @@ func GetConfig() *Config {
 		}
 
 		config = &Config{
-			DatabaseURL:         getEnvWithDefault("DATABASE_URL", "mongodb://root@rootlocalhost:27017/shortit"),
-			RedisURL:            getEnvWithDefault("REDIS_URL", "redis://localhost:6379"),
+			Database: Database{
+				URL:      getEnvWithDefault("DATABASE_URL", "mongodb://root@rootlocalhost:27017/shortit"),
+				Database: getEnvWithDefault("DATABASE_NAME", "shortit"),
+			},
 			ServiceGeneratePort: getEnvWithDefault("SERVICE_GENERATE_PORT", "8001"),
 			ServiceRedirectPort: shortitRedirectPort,
 			ShortitRedirectHost: shortitRedirectHost,
