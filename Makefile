@@ -23,7 +23,7 @@ push-service-redirect:
 
 # Deploy using Helm
 deploy:
-	helm upgrade --install $(HELM_RELEASE_NAME) ./deployments --namespace $(NAMESPACE)
+	helm upgrade --install $(HELM_RELEASE_NAME) ./deployments -f ./deployments/values.yaml --namespace $(NAMESPACE)
 
 # Clean up the Helm release
 clean:

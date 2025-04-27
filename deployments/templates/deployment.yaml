@@ -42,6 +42,13 @@ spec:
     spec:
       imagePullSecrets:
       - name: dockerhub-secret
+      initContainers:
+      - name: wait-for-mongodb
+        image: busybox
+        command: ['sh', '-c', 'until nc -z shortitsh-mongodb.shortit 27017; do echo waiting for mongodb; sleep 2; done;']
+      - name: wait-for-redis
+        image: busybox
+        command: ['sh', '-c', 'until nc -z {{ .Values.env.REDIS_HOST }} {{ .Values.env.REDIS_PORT }}; do echo waiting for redis; sleep 2; done;']
       containers:
       - name: service-generate
         image: {{ .Values.serviceGenerate.image.registry }}/{{ .Values.serviceGenerate.image.repository }}:{{ .Values.serviceGenerate.image.tag }}
@@ -65,7 +72,7 @@ spec:
           value: {{ .Values.serviceRedirect.port | quote }}    
         ports:
         - containerPort: {{ .Values.serviceGenerate.port }}
-
+       
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -83,6 +90,13 @@ spec:
     spec:
       imagePullSecrets:
       - name: dockerhub-secret
+      initContainers:
+      - name: wait-for-mongodb
+        image: busybox
+        command: ['sh', '-c', 'until nc -z shortitsh-mongodb.shortit 27017; do echo waiting for mongodb; sleep 2; done;']
+      - name: wait-for-redis
+        image: busybox
+        command: ['sh', '-c', 'until nc -z {{ .Values.env.REDIS_HOST }} {{ .Values.env.REDIS_PORT }}; do echo waiting for redis; sleep 2; done;']
       containers:
       - name: service-redirect
         image: {{ .Values.serviceRedirect.image.registry }}/{{ .Values.serviceRedirect.image.repository }}:{{ .Values.serviceRedirect.image.tag }}
@@ -104,3 +118,4 @@ spec:
           value: {{ .Values.serviceRedirect.port | quote }}  
         ports:
         - containerPort: {{ .Values.serviceRedirect.port }}
+        

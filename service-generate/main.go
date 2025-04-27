@@ -31,6 +31,18 @@ func main() {
 		c.String(http.StatusOK, "Hello, from service generate!")
 	})
 
+	router.GET("/healthz", func(c *gin.Context) {
+		if redis_err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Redis is not healthy"})
+			return
+		}
+		if db_err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "DB is not healthy"})
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{"status": "healthy"})
+	})
+
 	router.POST("/api/generate", generateShortURL)
 
 	port := fmt.Sprintf(":%s", cfg.ServiceGeneratePort)

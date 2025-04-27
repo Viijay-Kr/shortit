@@ -10,7 +10,7 @@ dockerHub:
 
 env:
   GO_ENV: minkube_local
-  DATABASE_URL: mongodb://shortitsh-mongodb:27017/shortit?directConnection=true
+  DATABASE_URL: mongodb://shortitsh-mongodb.shortit:27017/shortit?directConnection=true
   DATABASE_NAME: shortit
   REDIS_HOST: shortitsh-redis-master.shortit
   REDIS_PORT: 6379
